@@ -1,6 +1,12 @@
 # jakke-blog
 
-> My Blog
+My Blog. Powered by vuejs & prismic.io.
+
+## Has an archive.
+![Archive](http://i.imgur.com/BzJsHCw.png)
+
+## And a route to view a single post.
+![Single post](http://i.imgur.com/EioHCNY.png)
 
 ## Build Setup
 
