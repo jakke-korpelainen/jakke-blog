@@ -18,6 +18,8 @@
           <template v-for="item in query.results">
             <transition name="fade">
               <li class="post-item" >
+                <div class="post-item-background" v-html="item.getImage('post.image').asHtml()">                  
+                </div>
                 <router-link class="post-item-link" :to="{ name: 'post', params: { id: item.id }}">{{item.getText('post.heading')}}</router-link>
                 <span class="posts-item-timestamp" v-html="getDate(item.firstPublicationDate)"></span>
                 <p class="posts-item-peak" v-html="truncateText(item.getText('post.maincontent'), 300)">
@@ -142,13 +144,31 @@ h1 {
 }
 
 .post-item {
+  position: relative;
   margin-bottom: 20px;
-  padding: 20px 0;
+  padding: 20px;
   border-bottom: 1px solid #f5f5f5;
 }
 
 .post-item:last-of-type {
   border-bottom: 0;
+}
+
+.post-item-background {
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  min-width: 100%;
+  max-height: 100%;
+  opacity: .4;
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+
+.post-item-background {
+  -webkit-filter: grayscale(90%);
+  filter: grayscale(90%);
 }
 
 .posts-item-timestamp,
@@ -159,16 +179,22 @@ h1 {
   display: block;
 }
 
+.posts-item-peak {
+  color: #333;
+  font-size: 18px;
+}
+
 .posts-item-timestamp {
   color: #333;
 }
 
 .posts-item-tags {
   margin-top: 30px;
+  margin-bottom: 0;
 }
 
 .post-item-link {
-  font-size: 28px;
+  font-size: 38px;
   display: block;
   margin-bottom: 5px;
 }
