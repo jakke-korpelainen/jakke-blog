@@ -37,7 +37,7 @@ export default {
    -webkit-justify-content: flex-start;
    justify-content: flex-start;
 
-   border-bottom: 1px solid #eaeaea;
+   border-bottom: 1px solid #f5f5f5;
    padding-bottom: 20px;
    margin-bottom: 20px;
 }
@@ -94,8 +94,47 @@ export default {
   font-size: 16px;
 }
 
+.loading {
+  margin: 0;
+  opacity: .3;
+  -webkit-animation: spin 4s cubic-bezier(.25,1.15,.64,.3) infinite;
+  -moz-animation: spin 4s cubic-bezier(.25,1.15,.64,.3) infinite;
+  animation: spin 4s cubic-bezier(.25,1.15,.64,.3) infinite;
+}
+
+@-moz-keyframes spin {
+  100% { 
+    -moz-transform:rotate(360deg)
+  }
+}
+
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform:rotate(360deg)
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform:rotate(360deg)
+  }
+}
+
 a {
+  text-decoration: none;
   color: #262630;
+}
+
+a:hover {
+  color: #0F7FC9;
+}
+
+.tag {
+  padding: 4px 7px;
+  margin-right: 7px;
+  background: #262630;
+  color: white;
+  display: inline-block;
 }
 
 .fade-enter-active {
@@ -103,6 +142,11 @@ a {
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
   opacity: 0
+}
+
+main p {
+  font-size: 18px;
+  line-height: 1.5em;
 }
 
 @media (max-width: 375px) {

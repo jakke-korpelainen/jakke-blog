@@ -7,15 +7,28 @@
     <transition-group name="fade">
       <article key="true" class="post" v-if="post">
         <div class="post-image" v-html="image"></div>
-        <h2 v-html="heading"></h2>
-        <vembed v-bind:id="post.slug" v-bind:options="{ emoji: true }" v-html="content"></vembed>
+
+        <header>
+          <h1 v-html="heading"></h1>
+          <div class="post-meta">
+            <span class="post-meta-timestamp" v-html="date"></span>
+            <span class="post-meta-tag tag" v-for="tag in post.tags" v-html="tag"></span>
+          </div>
+        </header>
+
+        <main>
+          <vembed v-bind:id="post.slug" v-bind:options="{ emoji: true }" v-html="content"></vembed>
+        </main>
 
         <div class="comments">
           <disqus shortname="jakke" v-bind:identifier="id" v-bind:url="url"></disqus>
         </div>
       </article>    
       <article key="false" class="post" v-else>
-        <p>Loading...</p>
+        <svg class="loading" height="32" width="32">
+          <polygon points="1,16 16,1 16,16" style="fill:transparent;stroke:#000;stroke-width:2;"></polygon>
+          <polygon points="16,16, 16,31 31,16" style="fill:transparent;stroke:#000;stroke-width:2;"></polygon>
+        </svg>
       </article>
     </transition-group>
   </div>
@@ -26,6 +39,7 @@
 import VueDisqus from 'vue-disqus/VueDisqus.vue'
 import VEmbed from 'vue-embed'
 import Prismic from 'prismic.io'
+import moment from 'moment'
 
 export default {
   name: 'post',
@@ -61,6 +75,9 @@ export default {
     },
     url () {
       return location.href // this.$route.fullPath
+    },
+    date () {
+      return this.post ? moment(this.post.firstPublicationDate).format('dddd, DD MMMM YYYY') : null
     }
   },
   methods: {
@@ -85,18 +102,41 @@ export default {
 
 <style scoped>
 
+h1 {
+  font-size: 72px;
+  font-weight: 500;
+}
+
 h2 {
   font-size: 36px;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 22px;
+  font-weight: 500;
 }
 
 .post-actions {
   text-align: center;
 }
 
+.post-meta {
+  margin-bottom: 20px;
+}
+
+.post-meta-timestamp {
+  font-weight: 500;
+  font-size: 18px;
+  margin-right: 10px;
+  color: #333;
+}
+
 .comments {
   border-top: 1px solid #eaeaea;
-  padding: 10px;
-  margin: 10px;
+  padding: 20px 0;
+  margin-top: 75px;
+  margin-bottom: 25px;
 }
 
 @media (max-width: 375px) {
