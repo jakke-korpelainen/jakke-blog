@@ -3,10 +3,10 @@
 My Blog. Powered by vuejs & prismic.io.
 
 ## Has an archive.
-![Archive](http://i.imgur.com/BzJsHCw.png)
+![Archive](http://i.imgur.com/eGAwIgp.png)
 
 ## And a route to view a single post.
-![Single post](http://i.imgur.com/eGAwIgp.png)
+![Single post](http://i.imgur.com/IugaPhz.png)
 
 ## Build Setup
 
