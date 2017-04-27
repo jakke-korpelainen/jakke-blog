@@ -8,11 +8,16 @@
       <div class="post-image" v-html="image"></div>
       <h2 v-html="heading"></h2>
       <vembed v-bind:id="post.slug" v-bind:options="{ emoji: true }" v-html="content"></vembed>
+
+      <div class="comments">
+        <disqus shortname="jakke" v-bind:identifier="id" v-bind:url="url"></disqus>
+      </div>
     </article>
   </div>
 </template>
 
 <script>
+import VueDisqus from 'vue-disqus/VueDisqus.vue'
 import VEmbed from 'vue-embed'
 import Prismic from 'prismic.io'
 
@@ -24,7 +29,8 @@ export default {
     }
   },
   components: {
-    'vembed': VEmbed
+    'vembed': VEmbed,
+    'disqus': VueDisqus
   },
   props: [
     'id'
@@ -46,6 +52,9 @@ export default {
     },
     heading () {
       return this.post ? this.post.getText('post.heading') : null
+    },
+    url () {
+      return location.href // this.$route.fullPath
     }
   },
   methods: {
@@ -76,6 +85,12 @@ h2 {
 
 .post-actions {
   text-align: center;
+}
+
+.comments {
+  border-top: 1px solid #eaeaea;
+  padding: 10px;
+  margin: 10px;
 }
 
 @media (max-width: 375px) {
