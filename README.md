@@ -6,7 +6,7 @@ My Blog. Powered by vuejs & prismic.io.
 ![Archive](http://i.imgur.com/BzJsHCw.png)
 
 ## And a route to view a single post.
-![Single post](http://i.imgur.com/EioHCNY.png)
+![Single post](http://i.imgur.com/eGAwIgp.png)
 
 ## Build Setup
 
