@@ -11,11 +11,12 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Archive',
+      name: 'archive',
       component: Archive
     },
     {
       path: '/post/:id',
+      name: 'post',
       component: Post,
       props: (route) => ({ id: route.params.id })
     }

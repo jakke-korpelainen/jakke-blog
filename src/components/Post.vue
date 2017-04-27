@@ -1,19 +1,25 @@
 <template>
+
   <div>
     <div class="post-actions">
-      <a href="#/">Back to archive</a>
+      <router-link :to="{ name: 'archive' }">Back to archive</router-link>
     </div>
+    <transition-group name="fade">
+      <article key="true" class="post" v-if="post">
+        <div class="post-image" v-html="image"></div>
+        <h2 v-html="heading"></h2>
+        <vembed v-bind:id="post.slug" v-bind:options="{ emoji: true }" v-html="content"></vembed>
 
-    <article class="post" v-if="post">
-      <div class="post-image" v-html="image"></div>
-      <h2 v-html="heading"></h2>
-      <vembed v-bind:id="post.slug" v-bind:options="{ emoji: true }" v-html="content"></vembed>
-
-      <div class="comments">
-        <disqus shortname="jakke" v-bind:identifier="id" v-bind:url="url"></disqus>
-      </div>
-    </article>
+        <div class="comments">
+          <disqus shortname="jakke" v-bind:identifier="id" v-bind:url="url"></disqus>
+        </div>
+      </article>    
+      <article key="false" class="post" v-else>
+        <p>Loading...</p>
+      </article>
+    </transition-group>
   </div>
+  
 </template>
 
 <script>

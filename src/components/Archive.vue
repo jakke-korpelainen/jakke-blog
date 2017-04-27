@@ -2,23 +2,24 @@
   <section class="archive">
     <h1>Blog</h1>
 
-    <div class="container" v-if="query && query.results && query.results.length">
-      <ul class="posts" v-for="item in query.results">
-        <li class="post-item">
-          <span class="posts-item-timestamp" v-html="getDate(item.firstPublicationDate)"></span>
-          <a class="post-item-link" v-bind:href="'#/post/' + item.id">
-            {{item.getText('post.heading')}}
-          </a>
-          <div class="posts-item-tags">
-            <label>tags: </label>
-            <span class="tag" v-for="tag in item.tags" v-html="tag"></span>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div class="container" v-else>
-      <p>Loading...</p>
-    </div>
+    <transition-group name="fade">
+      <div key="true" class="container" v-if="query && query.results && query.results.length">
+        <ul class="posts" v-for="item in query.results">
+          <li class="post-item">
+            <span class="posts-item-timestamp" v-html="getDate(item.firstPublicationDate)"></span>
+            <router-link class="post-item-link" :to="{ name: 'post', params: { id: item.id }}">{{item.getText('post.heading')}}</router-link>
+
+            <div class="posts-item-tags">
+              <label>tags: </label>
+              <span class="tag" v-for="tag in item.tags" v-html="tag"></span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div key="false" class="container" v-else>
+        <p>Loading...</p>
+      </div>
+    </transition-group>
   </section>
 </template>
 
@@ -76,31 +77,6 @@ h1 {
 .posts {
   padding-left: 0;
   list-style-type: none;
-}
-
-@media (max-width: 375px) {
-  .posts {
-    width: 100%;
-    margin: 10px
-  }
-
-  img {
-    height: auto;
-  }
-}
-
-@media (min-width: 768px) {
-  .posts {
-    width: 768px;
-    margin: 10px auto;
-  }
-}
-
-@media (min-width: 1024px) {
-  .posts {
-    width: 1024px;
-    margin: 20px auto;
-  }
 }
 
 .post-item {
