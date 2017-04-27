@@ -43,6 +43,7 @@ export default {
 }
 
 .author-image {
+  margin-top: 12px;
   width: 125px;
   height: 125px;
 }
@@ -135,6 +136,10 @@ a:hover {
   background: #262630;
   color: white;
   display: inline-block;
+}
+
+a.tag:hover {
+  color: white;
 }
 
 .fade-enter-active {
