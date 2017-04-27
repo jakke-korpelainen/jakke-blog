@@ -2,7 +2,7 @@
   <section class="archive">
     <h1>Blog</h1>
 
-    <div v-if="query && query.results && query.results.length">
+    <div class="container" v-if="query && query.results && query.results.length">
       <ul class="posts" v-for="item in query.results">
         <li class="post-item">
           <span class="posts-item-timestamp" v-html="getDate(item.firstPublicationDate)"></span>
@@ -15,6 +15,9 @@
           </div>
         </li>
       </ul>
+    </div>
+    <div class="container" v-else>
+      <p>Loading...</p>
     </div>
   </section>
 </template>
