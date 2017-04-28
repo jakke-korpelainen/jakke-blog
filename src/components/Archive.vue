@@ -163,7 +163,7 @@ h1 {
   min-width: 100%;
   max-height: 100%;
   min-height: 100%;
-  opacity: .4;
+  opacity: .15;
   overflow: hidden;
   margin-bottom: 25px;
   background-color: #ccc;
@@ -208,7 +208,9 @@ h1 {
 }
 
 .post-item-link:hover + .post-item-background {
-  opacity: .2;
+  opacity: .25;
+  -webkit-filter: grayscale(50%);
+  filter: grayscale(50%);
 }
 
 </style>
