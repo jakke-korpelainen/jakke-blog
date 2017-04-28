@@ -3,7 +3,7 @@
     <div class="container">
       <div class="author">
         <div class="author-image">
-          <img src="./assets/me.png" />
+          <img src="https://avatars0.githubusercontent.com/u/3626319?v=3&u=2c3b65d19d2991b9b73c64f428ad948586c6d99d&s=200" />
         </div>
         <div class="author-description">
           <h3>Jakke Korpelainen</h3>

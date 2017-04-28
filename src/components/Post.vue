@@ -165,6 +165,8 @@ h3 {
 }
 
 .post-image {
+  -webkit-filter: grayscale(90%);
+  filter: grayscale(90%);
   margin-bottom: 2em;
 }
 
