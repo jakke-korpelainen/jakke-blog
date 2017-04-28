@@ -51,7 +51,7 @@ import Prismic from 'prismic.io'
 export default {
   name: 'archive',
   components: {
-    'post': Post
+    Post
   },
   data () {
     return {
