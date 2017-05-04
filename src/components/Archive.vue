@@ -175,6 +175,16 @@ h1 {
   filter: grayscale(90%);
 }
 
+@media (max-width: 768px) {
+  .post-item-background img {
+    background: #d1d1d1;
+  }
+
+  .post-item-background img {
+    display: none;
+  }
+}
+
 .posts-item-timestamp,
 .posts-item-tags {
   font-weight: 500;
