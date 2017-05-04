@@ -17,7 +17,7 @@
         </header>
 
         <main>
-          <vembed v-bind:id="post.slug" v-bind:options="{ emoji: true }" v-html="content"></vembed>
+          <vEmbed v-bind:id="post.slug" v-bind:options="{ emoji: true }" v-html="content"></vEmbed>
         </main>
 
         <div class="comments">
@@ -49,8 +49,8 @@ export default {
     }
   },
   components: {
-    'vembed': VEmbed,
-    'disqus': VueDisqus
+    VEmbed,
+    VueDisqus
   },
   props: [
     'id'

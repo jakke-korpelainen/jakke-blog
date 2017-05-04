@@ -42,6 +42,12 @@ export default {
    margin-bottom: 20px;
 }
 
+@media (max-width: 768px) {
+  .author {
+    justify-content: center;
+  }
+}
+
 .author-image {
   margin-top: 12px;
   width: 125px;
@@ -121,6 +127,11 @@ export default {
   }
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 a {
   text-decoration: none;
   color: #262630;
@@ -154,17 +165,6 @@ main p {
   line-height: 1.5em;
 }
 
-@media (max-width: 375px) {
-  .container {
-    width: 100%;
-    margin: 10px
-  }
-
-  img {
-    height: auto;
-  }
-}
-
 @media (min-width: 768px) {
   .container {
     width: 768px;
@@ -176,6 +176,17 @@ main p {
   .container {
     width: 1024px;
     margin: 20px auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    margin: 0;
+  }
+
+  img {
+    height: auto;
   }
 }
 
